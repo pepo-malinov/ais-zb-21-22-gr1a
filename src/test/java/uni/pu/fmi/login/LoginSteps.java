@@ -1,9 +1,6 @@
 package uni.pu.fmi.login;
 
-import static org.junit.Assert.assertEquals;
-
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import uni.pu.fmi.login.models.LoginScreenModel;
 
@@ -11,9 +8,13 @@ public class LoginSteps {
 
 	private LoginScreenModel loginModel;
 
+	public LoginSteps(LoginScreenModel loginModel) {
+		this.loginModel = loginModel;
+	}
+
 	@Given("^Потребителя отваря формата за вход в системата$")
 	public void navigateToLoginScreen() {
-		loginModel = new LoginScreenModel();
+		// loginModel = new LoginScreenModel();
 	}
 
 	@Given("^Въвежда валидно потребителско име$")
@@ -29,11 +30,6 @@ public class LoginSteps {
 	@When("^Натиска върху бутона за вход в системата$")
 	public void loginButtonClick() {
 		loginModel.loginButtonClick();
-	}
-
-	@Then("^Вижда съобщение за успех$")
-	public void checkMessage() {
-		assertEquals("OK", loginModel.getMessage());
 	}
 
 }

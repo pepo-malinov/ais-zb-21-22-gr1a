@@ -15,8 +15,19 @@ public class LoginService {
 
 	public static String login(String username, String password) {
 
+		
+		//username.equals(u.getUsername())
+		// username!= null && username.equals(u.getUsername())
+		
+		// "TestName".equals(username)
+		// "".equals(username)
+		// username.equals("TestName")
+		// u.getUsername().equals(username)
+		
+		
+		
 		final boolean anyMatch = usersDB.stream()
-				.anyMatch(u -> username.equals(u.getUsername()) && password.equals(u.getPassword()));
+				.anyMatch(u -> u.getUsername().equals(username) && u.getPassword().equals(password));
 
 		return anyMatch ? "OK" : "404";
 	}

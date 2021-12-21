@@ -1,5 +1,6 @@
 package uni.pu.fmi.login.models;
 
+import uni.pu.fmi.register.servoces.RegisterService;
 import uni.pu.fmi.services.login.LoginService;
 
 public class LoginScreenModel {
@@ -34,5 +35,10 @@ public class LoginScreenModel {
 
 	public void loginButtonClick() {
 		this.message = LoginService.login(username, password);
+	}
+
+	public void clickOnRegisterButton() {
+		this.message = RegisterService.register(username, password);
+		
 	}
 }
